@@ -1,6 +1,6 @@
 import unittest
 import numpy as np
-from your_module import (rand_int, rand_float, first_10_primes, squares, cubes, 
+from ejercicios_de_numpy import (rand_int, rand_float, first_10_primes, squares, cubes, 
                          add_arrays, subtract_arrays, multiply_arrays, divide_arrays, 
                          stats, first_5, last_3, indices_2_4_6, greater_50, less_7, 
                          reshape_2x6, reshape_2x3x4, reshape_10x10, reshape_10x10x10, 
