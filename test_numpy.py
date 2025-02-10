@@ -11,12 +11,14 @@ from ejercicios_de_numpy import (rand_int, rand_float, first_10_primes, squares,
 class TestNumpyExercises(unittest.TestCase):
 
     def test_rand_int(self):
+        '''TODO: Reemplaza prueba por numeros enteros entre 0 100 y logitud de ndarray'''
         np.random.seed(10)
         result = rand_int()
         expected = np.array([ 9, 15, 64, 28, 89, 93, 29,  8, 73,  0])
         np.testing.assert_array_equal(result, expected)
 
     def test_rand_float(self):
+        '''TODO: reemplaza prueba por números flotantes entre 0 y 1 y logitud de ndarray'''
         np.random.seed(10)
         result = rand_float()
         expected = np.array([0.77132064, 0.02075195, 0.63364823, 0.74880388, 0.49850701])
