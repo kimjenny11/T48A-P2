@@ -168,24 +168,101 @@ class TestNumpyExercises(unittest.TestCase):
         np.testing.assert_array_equal(result, expected)
 
     def test_temp_data(self):
-        temps = np.array([10, 20, 30, 25, 15])
-        mask = temps > 25
-        result = temps[mask]
-        expected = np.array([30])
-        np.testing.assert_array_equal(result, expected)
-        below_15 = np.sum(temps < 15)
-        self.assertEqual(below_15, 1)
+        # Crear un arreglo de numpy con temperaturas de prueba
+        temps = np.array([10, 20, 30, 5, 15, 25, 35, 12, 28])
+        
+        # Capturar la salida de la función
+        import io
+        import sys
+        captured_output = io.StringIO()
+        sys.stdout = captured_output
+        
+        # Llamar a la función con los datos de prueba
+        temp_data(temps)
+        
+        # Restaurar la salida estándar
+        sys.stdout = sys.__stdout__
+        
+        # Obtener la salida capturada
+        output = captured_output.getvalue()
+        
+        # Verificar que la salida sea la esperada
+        assert "Temperaturas mayores a 25 grados: [30 35 28]" in output
+        assert "Número de días con temperatura menor a 15 grados: 4" in output
+        
+        print("La prueba unitaria ha pasado exitosamente.")
 
     def test_rainfall_data(self):
-        rainfall = np.array([[50, 60, 110], [90, 100, 120], [80, 70, 130]])
-        mask = rainfall > 100
-        result = np.where(mask)[0]
-        expected = np.array([0, 1, 2])
-        np.testing.assert_array_equal(result, expected)
+        # Crear un arreglo 2D de numpy con datos de lluvia de prueba
+        rainfall = np.array([
+            [50, 120, 80],
+            [110, 90, 130],
+            [70, 60, 140]
+        ])
+        
+        # Capturar la salida de la función
+        import io
+        import sys
+        captured_output = io.StringIO()
+        sys.stdout = captured_output
+        
+        # Llamar a la función con los datos de prueba
+        rainfall_data(rainfall)
+        
+        # Restaurar la salida estándar
+        sys.stdout = sys.__stdout__
+        
+        # Obtener la salida capturada
+        output = captured_output.getvalue()
+        
+        # Verificar que la salida sea la esperada
+        assert "Índices de las ciudades con más de 100 mm de lluvia: [0 1 1 2]" in output
+        
+        print("La prueba unitaria ha pasado exitosamente.")
 
     def test_image_thresholding(self):
-        image = np.array([[100, 150], [200, 50]])
-        threshold = 128
-        result = np.where(image > threshold, 255, 0)
-        expected = np.array([[0, 255], [255, 0]])
-        np.testing.assert_array_equal(result, expected)
+# Crear un arreglo 2D de numpy con datos de imagen de prueba
+        image = np.array([
+            [100, 150, 200],
+            [50, 125, 175],
+            [0, 255, 128]
+        ])
+        
+        # Resultado esperado después del umbral
+        expected_output = np.array([
+            [0, 255, 255],
+            [0, 0, 255],
+            [0, 255, 255]
+        ])
+        
+        # Llamar a la función con los datos de prueba
+        output = image_thresholding(image)
+        
+        # Verificar que la salida sea la esperada
+        assert np.array_equal(output, expected_output), f"Expected {expected_output}, but got {output}"
+        
+        print("La prueba unitaria ha pasado exitosamente.")
+
+    def test_diagonals():
+        # Crear un arreglo 2D de numpy de 5x5 con datos de prueba
+        matrix = np.array([
+            [1, 2, 3, 4, 5],
+            [6, 7, 8, 9, 10],
+            [11, 12, 13, 14, 15],
+            [16, 17, 18, 19, 20],
+            [21, 22, 23, 24, 25]
+        ])
+        
+
+        expected_output = (np.array([1, 7, 13, 19, 25]), np.array([5, 9, 13, 17, 21]))
+        
+        # Llamar a la función con los datos de prueba
+        output = matrix_diagonals(matrix)
+        
+        # Verificar que la salida sea la esperada
+        assert np.array_equal(output[0], expected_output[0]), f"Expected {expected_output[0]}, but got {output[0]}"
+        assert np.array_equal(output[1], expected_output[1]), f"Expected {expected_output[1]}, but got {output[1]}"
+        
+        print("La prueba unitaria ha pasado exitosamente.")
+
+
