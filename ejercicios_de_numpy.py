@@ -545,21 +545,24 @@ element_wise_product(arr1, arr2).__repr__()
 """
 
 def temp_data(temps):
-  '''Imprime las temperaturas que fueron mayores a 25 grados y el número de
-  días en los que la temperatura fue menor a 15 grados.
+    '''Imprime las temperaturas que fueron mayores a 25 grados y el número de
+    días en los que la temperatura fue menor a 15 grados.
 
-  Parameters
-  ----------
-  temps: numpy.ndarray
-    arreglo de numpy de temperaturas en Celsius.
-  '''
-  temps_mayores_25 = temps[temps > 25]
-  num_dias_menores_15 = np.sum(temps < 15)
-  return temps_mayores_25, num_dias_menores_15
-
+    Parameters
+    ----------
+    temps: numpy.ndarray
+      arreglo de numpy de temperaturas en Celsius.
+    '''
+    temps_mayores_25 = temps[temps > 25]
+    num_dias_menores_15 = np.sum(temps < 15)
+    
+    # Asegúrate de que el mensaje se imprima correctamente
+    print(f"Temperaturas mayores a 25 grados: {temps_mayores_25}")
+    print(f"Número de días con temperaturas menores a 15 grados: {num_dias_menores_15}")
+  
+# Test del código
 temps = np.array([20, 28, 12, 30, 18, 25, 35, 10])
-temps_mayores_25, num_dias_menores_15 = temp_data(temps)
-temp_data(temps).__repr__()
+temp_data(temps)  # Esta línea imprimirá el resultado correcto
 
 """2. Rainfall Data: You have a 2D NumPy array representing monthly rainfall (in mm) for different cities.  Create a boolean mask to find the locations where rainfall exceeded 100 mm in any month.  Print the city indices (row numbers) that meet this condition."""
 
@@ -575,11 +578,14 @@ def rainfall_data(rainfall):
     '''
     ciudades_con_lluvia_mayor_100 = rainfall > 100
     indices_ciudades = np.where(np.any(ciudades_con_lluvia_mayor_100, axis=1))[0]
-    # Imprimir los índices como parte de un mensaje formateado
+    
+    # Asegurémonos de que el mensaje sea igual al esperado en el test
     print(f"Índices de las ciudades con más de 100 mm de lluvia: {indices_ciudades}")
-
+  
+# Test del código
 rainfall = np.array([[90, 120, 80], [150, 70, 95], [60, 110, 130]])
-rainfall_data(rainfall).__repr__()
+rainfall_data(rainfall)  # Esta línea imprimirá el resultado correcto
+
 
 """3. Image Thresholding:  Imagine a grayscale image represented as a 2D NumPy array.  Create a mask to select pixels with intensity values greater than a certain threshold (e.g., 128).  Set the values of these pixels to 255 (white) and the remaining pixels to 0 (black). This simulates a simple image thresholding operation."""
 
