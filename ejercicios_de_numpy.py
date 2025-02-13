@@ -584,7 +584,7 @@ def rainfall_data(rainfall):
   
 # Test del código
 rainfall = np.array([[90, 120, 80], [150, 70, 95], [60, 110, 130]])
-rainfall_data(rainfall)  # Esta línea imprimirá el resultado correcto
+rainfall_data(rainfall).__repr__()  # Esta línea imprimirá el resultado correcto
 
 
 """3. Image Thresholding:  Imagine a grayscale image represented as a 2D NumPy array.  Create a mask to select pixels with intensity values greater than a certain threshold (e.g., 128).  Set the values of these pixels to 255 (white) and the remaining pixels to 0 (black). This simulates a simple image thresholding operation."""
