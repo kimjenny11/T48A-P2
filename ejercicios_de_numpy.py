@@ -563,18 +563,20 @@ temp_data(temps).__repr__()
 
 """2. Rainfall Data: You have a 2D NumPy array representing monthly rainfall (in mm) for different cities.  Create a boolean mask to find the locations where rainfall exceeded 100 mm in any month.  Print the city indices (row numbers) that meet this condition."""
 
-def rainfall_data(rainfall):
-  '''Imprime los índices de las ciudades que tuvieron más de 100 mm de lluvia
+import numpy as np
 
-  Parameters
-  ----------
-  rainfall: numpy.ndarray
-    arreglo 2D de numpy de lluvia en mm y ciudades.
-  '''
-     ciudades_con_lluvia_mayor_100 = rainfall > 100
-     indices_ciudades = np.where(np.any(ciudades_con_lluvia_mayor_100, axis=1))[0]
-     # Imprimir los índices como parte de un mensaje formateado
-     print(f"Índices de las ciudades con más de 100 mm de lluvia: {indices_ciudades}")
+def rainfall_data(rainfall):
+    '''Imprime los índices de las ciudades que tuvieron más de 100 mm de lluvia
+
+    Parameters
+    ----------
+    rainfall: numpy.ndarray
+      arreglo 2D de numpy de lluvia en mm y ciudades.
+    '''
+    ciudades_con_lluvia_mayor_100 = rainfall > 100
+    indices_ciudades = np.where(np.any(ciudades_con_lluvia_mayor_100, axis=1))[0]
+    # Imprimir los índices como parte de un mensaje formateado
+    print(f"Índices de las ciudades con más de 100 mm de lluvia: {indices_ciudades}")
 
 rainfall = np.array([[90, 120, 80], [150, 70, 95], [60, 110, 130]])
 rainfall_data(rainfall)
