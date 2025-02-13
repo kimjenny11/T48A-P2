@@ -571,10 +571,10 @@ def rainfall_data(rainfall):
   rainfall: numpy.ndarray
     arreglo 2D de numpy de lluvia en mm y ciudades.
   '''
-  ciudades_con_lluvia_mayor_100 = rainfall > 100
-  indices_ciudades = np.where(np.any(ciudades_con_lluvia_mayor_100, axis=1))[0]
-  # Imprimir los índices como parte de un mensaje formateado
-  print(f"Índices de las ciudades con más de 100 mm de lluvia: {indices_ciudades}")
+    ciudades_con_lluvia_mayor_100 = rainfall > 100
+    indices_ciudades = np.where(np.any(ciudades_con_lluvia_mayor_100, axis=1))[0]
+    # Imprimir los índices como parte de un mensaje formateado
+    print(f"Índices de las ciudades con más de 100 mm de lluvia: {indices_ciudades}")
 
 rainfall = np.array([[90, 120, 80], [150, 70, 95], [60, 110, 130]])
 rainfall_data(rainfall)
