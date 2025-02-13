@@ -7,7 +7,7 @@ Original file is located at
     https://colab.research.google.com/drive/17yyS5Lrw83Xez4RaMBda4q0tn5e6eZXS
 
 # Instrucciones
-
+#jennifer paola lópez cerda
 ## Sigue las instrucciones para cada celda y al final baja la libreta en formato .py y subelo al repositorio que se te indique, no modifiques el nombre la de función, solo importa una vez numpy en el código.
 """
 
